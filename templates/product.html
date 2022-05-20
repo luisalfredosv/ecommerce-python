@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>{{ product.name }}</title>
+		<link
+			href="{{ url_for('static', path='/styles.css') }}"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<h1>{{ product.name }}</h1>
+		<img
+			src="{{ url_for('static', path='images/products/'+product.image_url ) }}"
+			alt=""
+		/>
+    <pre>
+        {{ product }}
+    </pre
+		>
+	</body>
+</html>

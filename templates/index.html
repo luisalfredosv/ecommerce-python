@@ -1,0 +1,10 @@
+<ul id="navigation">
+    {% for product in products %}
+        <li><a href="/products/{{ product.slug }}">{{ product.name }}</a>
+
+             <pre>
+                 {{ product }}
+             </pre>
+        </li>
+    {% endfor %}
+    </ul>
