@@ -2,19 +2,151 @@
 	<head>
 		<title>{{ product.name }}</title>
 		<link
-			href="{{ url_for('static', path='/styles.css') }}"
-			rel="stylesheet"
-		/>
+		href="{{ url_for('static', path='/css/styles.css') }}"
+		rel="stylesheet"
+	/>
+	<link
+		href="{{ url_for('static', path='/css/bootstrap.min.css') }}"
+		rel="stylesheet"
+	/>
+	<link
+		href="{{ url_for('static', path='/fonts/fontawesome/css/fontawesome-all.min.css') }}"
+		rel="stylesheet"
+	/>
 	</head>
 	<body>
-		<h1>{{ product.name }}</h1>
-		<img
-			src="{{ url_for('static', path='images/products/'+product.image_url ) }}"
-			alt=""
-		/>
-    <pre>
-        {{ product }}
-    </pre
-		>
-	</body>
+	<!-- Inicio Barra de Navegacion -->
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="#">SHOP</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Tienda</a>
+					</li>
+
+				</ul>
+				<div class="btn-container">
+					<i class="fa-solid fa-cart-shopping"></i>
+				</div>
+
+
+			</div>
+		</div>
+	</nav>
+	<!-- Fin Barra de Navegacion -->
+	<!-- Inicio Slider -->
+	<div class="p-4 p-md-5 mb-4 text-white bg-dark">
+		<div class="col-md-6 px-0">
+			<h1 class="display-4 fst-italic">{{ product.name }}</h1>
+			<p class="lead my-3">
+				<!-- Inicio Breadcrumb -->
+				<nav class="py-5">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<!-- Breadcrumb -->
+								<ol class="breadcrumb mb-0 fs-xs text-gray-400">
+									<li class="breadcrumb-item">
+										<a class="text-gray-400" style="text-decoration: none; color: #fff" href="/">Inicio</a>
+									</li>
+									<li class="breadcrumb-item">
+										<a class="text-gray-400" style="text-decoration: none; color: #fff" href="#">{{ product.category }}</a>
+									</li>
+									<li class="breadcrumb-item active">
+										{{ product.name }}
+									</li>
+								</ol>
+
+							</div>
+						</div>
+					</div>
+				</nav>
+				<!-- Fin Breadcrumb -->
+			</p>
+		</div>
+	</div>
+	<!-- Fin Slider -->
+	<!-- Inicio Contenido -->
+
+		<!-- Inicio Producto -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row g-0 rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+						<div class="col-md-6 d-lg-block text-center">
+
+							<img
+							src="{{ url_for('static', path='images/products/'+product.image_url ) }}"
+							alt={{product.name}}
+							class="rounded img-product"
+              style="max-width: 450px;"
+						/>
+
+						</div>
+						<div class="col p-4 d-flex flex-column position-static ">
+							<h3 class="mb-0">{{ product.name }}</h3>
+							<div class="mb-1 text-muted mt-2">Precio</div>
+							<h5 class="card-title pricing-card-title">$ {{ product.price }}</h5>
+							<div class="mb-1 text-muted mt-2">Descripcion</div>
+							<div class="card-text mb-auto">
+								<p>
+                  {{ product.description }}
+                </p>
+								<div class="container">
+									<div class="row">
+										<div class="col-12 col-md-12">
+											<!-- List -->
+											<ul class="list list-unstyled mb-md-0 text-gray-500">
+												<li>
+													<strong class="text-body">SKU</strong>: #61590437-{{product.id}}
+												</li>
+												<li>
+													<strong class="text-body">Catergoria</strong>: {{ product.category }}
+												</li>
+												<li>
+													<strong class="text-body">Marca</strong>: {{product.brand}}
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<a href="#" class="btn btn-primary">Agregar a carrito</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Fin Producto -->
+
+	<!-- Fin Contenido -->
+	<!-- Inicio Footer -->
+	<footer class="text-muted py-5 bg-footer">
+		<div class="container">
+			<p class="float-end mb-1">
+				<a href="#"> SHOP</a>
+			</p>
+			<p class="mb-1"> Tienda virtual en Bootstrap</p>
+			<p class="mb-0">
+				Copyright © 2022
+				<a href="#">IUTVAL</a>
+				Todos los derechos reservados
+			</p>
+		</div>
+	</footer>
+	<!-- Fin Footer -->
+
+	<script src="{{ url_for('static', path='/js/bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static', path='/js/bootstrap.bundle.min.js') }}"></script>
+	<script src="{{ url_for('static', path='/fonts/fontawesome/js/fontawesome-all.min.js') }}"></script>
+</body>
 </html>
